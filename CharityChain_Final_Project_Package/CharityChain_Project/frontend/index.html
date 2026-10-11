@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CharityChain | Transparent Giving</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <nav><span class="brand">CharityChain</span><button id="connectBtn">Connect MetaMask</button></nav>
+    <div class="hero-copy">
+      <p class="eyebrow">TRANSPARENT GIVING, POWERED BY BLOCKCHAIN</p>
+      <h1>Every donation.<br><em>Visible on-chain.</em></h1>
+      <p>A student prototype for recording charity campaigns and tracking donations transparently.</p>
+      <p id="walletStatus" class="status">Wallet not connected</p>
+    </div>
+  </header>
+  <main>
+    <section class="notice">
+      <strong>Demo only</strong>
+      <span>Use a local development chain or testnet. This app is not for real donations.</span>
+    </section>
+    <section class="panel">
+      <div class="section-head"><div><p class="eyebrow">CAMPAIGNS</p><h2>Support a cause</h2></div><button class="secondary" id="refreshBtn">Refresh</button></div>
+      <div id="campaignList" class="campaign-grid"><p class="muted">Configure the contract address and ABI in app.js, then connect your wallet.</p></div>
+    </section>
+    <section class="panel">
+      <p class="eyebrow">OWNER TOOL</p><h2>Create a campaign</h2>
+      <p class="muted">Only the wallet that deployed the contract can create campaigns.</p>
+      <form id="createForm" class="form-grid">
+        <label>Beneficiary wallet address<input id="beneficiary" placeholder="0x..." required></label>
+        <label>Campaign title<input id="title" placeholder="Flood Relief" required></label>
+        <label class="wide">Description<textarea id="description" placeholder="What will the campaign support?" required></textarea></label>
+        <label>Goal (ETH)<input id="goal" type="number" min="0.000001" step="any" placeholder="1" required></label>
+        <button type="submit">Create campaign</button>
+      </form>
+    </section>
+    <section class="panel"><p class="eyebrow">ACTIVITY</p><h2>Latest action</h2><pre id="activity">No transaction submitted yet.</pre></section>
+  </main>
+  <footer>CharityChain · Educational blockchain mini-project</footer>
+  <script src="app.js"></script>
+</body>
+</html>
